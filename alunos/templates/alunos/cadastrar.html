@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadastrar Aluno</title>
+<link rel="stylesheet" href="{% static 'alunos/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Formulario de cadastro de alunos</h1>
+        {% if erro %}
+            <p class="error" role="alert">{{ erro }}</p>
+        {% endif %}
+        <form method="POST">
+        {% csrf_token %}
+            <input type="text" name="cpf" placeholder="CPF do aluno" required>
+            <input type="text" name="matricula" placeholder="Matrícula do aluno" required>
+            <input type="text" name="nome" placeholder="Nome do aluno" required>
+            <input type="number" name="idade" placeholder="Idade do aluno">
+            <input type="email" name="email" placeholder="Email do aluno">
+            <input type="text" name="telefone" placeholder="Telefone do aluno">
+            <input type="text" name="endereco" placeholder="Endereço do aluno">
+            <input type="submit" value="Cadastrar">
+        </form>
+    </div>
+</body>
+</html>
